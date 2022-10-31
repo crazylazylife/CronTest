@@ -3,7 +3,7 @@ name: Weekly RC Branch Creation
 on:
   schedule:
     # - cron: "0 23 * * */6" # Every Saturday at 23:00 UTC
-    - cron: "*/15 * * * *" # Every 10 min
+    - cron: "0 0 * */12 *" # Every 10 min
 
 jobs:
   nightly-build:
