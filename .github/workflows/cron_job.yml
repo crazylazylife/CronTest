@@ -1,0 +1,39 @@
+name: Weekly RC Branch Creation
+
+on:
+  schedule:
+    # - cron: "0 23 * * */6" # Every Saturday at 23:00 UTC
+    - cron: "*/15 * * * *" # Every 10 min
+
+jobs:
+  nightly-build:
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/checkout@v2
+      #   with:
+      #     ref: "main"
+      # # - run: |
+      # #     git config --local user.email "github@convai.com"
+      # #     git config --local user.name "GitHub Actions"
+      # - id: todays-date
+      #   run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      # - run: |
+      #     git checkout -b RC-${{ steps.todays-date.outputs.date }}
+      #     git push --set-upstream origin \
+        #       RC-${{ steps.todays-date.outputs.date }}
+        
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # - name: Send GitHub Action trigger data to Slack
+      #   id: slack
+      #   uses: slackapi/slack-github-action@v1.23.0
+      #   with:
+      #     payload: |
+      #       {
+      #         "Service": "Test Actions",
+      #         "STATUS": "${{ job.status }}",
+      #         "Message": "New RC Branch: RC-${{steps.todays-date.outputs.date }}"
+      #       }
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DEPLOYMENTS_WEBHOOK_URL }}
